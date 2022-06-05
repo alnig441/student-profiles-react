@@ -1,21 +1,20 @@
 export default function Grades(props) {
   let grades = props.grades;
-
   return(
     <>
-      <table>
+      <table hidden>
+        <tbody>
           {grades && grades.map((grade, index) => {
-              if(grade) {
-                return (
-                  <>
-                    <tr>
-                      <td>Test {index + 1}</td>
-                      <td>{grade}%</td>
-                    </tr>
-                  </>
-                )
-              }
+              return (
+                <>
+                  <tr>
+                    <td>Test {index + 1}</td>
+                    <td>{grade}%</td>
+                  </tr>
+                </>
+              )
           })}
+        </tbody>
       </table>
     </>
   )

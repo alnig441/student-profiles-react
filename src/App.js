@@ -26,9 +26,10 @@ class App extends React.Component {
 
   toggleGrades(e) {
     e.preventDefault();
+    console.log(e)
     const parentNode = e.target.parentNode;
     if(parentNode.attributes["class"].value === 'grid-item collapsible') {
-      const grades = parentNode.nextSibling.nextSibling;
+      const grades = parentNode.nextSibling.nextSibling.children[0];
       const expand = parentNode.childNodes[0];
       const collapse = parentNode.childNodes[1];
       grades.toggleAttribute("hidden");
@@ -58,8 +59,8 @@ class App extends React.Component {
     return(
       <>
         <div id="header">
-        <SearchBar id="search_by_name" placeHolder="Search by name" onKeyUp={this.search} pattern="[a-zA-Z0-9]+"/>
-        <SearchBar id="search_by_tag" placeHolder="Search by tag" onKeyUp={this.search} pattern="[a-zA-Z0-9]+"/>
+        <SearchBar id="search_by_name" placeholder="Search by name" onKeyUp={this.search} pattern="[a-zA-Z0-9]+"/>
+        <SearchBar id="search_by_tag" placeholder="Search by tag" onKeyUp={this.search} pattern="[a-zA-Z0-9]+"/>
         </div>
         <Student students={this.state.students} onClick={this.toggleGrades} onSubmit={this.addTag}/>
       </>

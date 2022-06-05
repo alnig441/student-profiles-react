@@ -60,6 +60,10 @@ input {
 	margin: 0px;
 }
 
+#add_a_tag {
+	margin-top: 10px;
+	margin-left: 10px;
+}
 
 
 span {
@@ -83,6 +87,7 @@ p {
 
 table {
   margin-left: 10px;
+	padding-left: 10px;
 }
 
 td {
@@ -98,14 +103,28 @@ td {
 }
 
 .grid-container {
+	padding-top: 10px;
+	padding-bottom: 10px;
 	border-top: 1px solid lightgray;
-  gap: 10px;
+  column-gap: 10px;
   display: grid;
   grid-template-columns: 150px auto auto;
 }
 
 .grid-item {
-	padding: 10px;
+	padding: 0px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.grades {
+	row-gap: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.tags > div {
+	padding-left: 10px;
 }
 
 @media screen and (max-width: 950px) {
