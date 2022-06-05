@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { API } from './app-modules/api';
+import { UTIL } from './app-modules/utilities';
 import { Student } from './components/Student.js';
 import { SearchBar } from './components/SearchBar.js';
 
@@ -11,6 +12,8 @@ class App extends React.Component {
     super(props);
     this.state  = {
       students : [],
+      name_search: '',
+      name_search: ''
     };
     this.toggleGrades = this.toggleGrades.bind(this);
     this.addTag = this.addTag.bind(this);
@@ -26,7 +29,6 @@ class App extends React.Component {
 
   toggleGrades(e) {
     e.preventDefault();
-    console.log(e)
     const parentNode = e.target.parentNode;
     if(parentNode.attributes["class"].value === 'grid-item collapsible') {
       const grades = parentNode.nextSibling.nextSibling.children[0];
@@ -49,18 +51,28 @@ class App extends React.Component {
 
   search(e) {
     e.preventDefault();
-    console.log('e key ', e.key, e.code)
-    if(e.key) {
-      console.log('what ', e.target.value)
+    let key = e.key.toLowerCase();
+    const type = e.target.attributes["id"].value;
+    this.setState({ [type] : e.target.value })
+
+    if(key.length === 1) {
+      let search = UTIL.isMatch(e.target.value.toLowerCase(), type, students, this.state.name_search, this.state.tag_search);
+      this.setState({ students: search });
     }
+
+    if(key === "backspace") {
+      let search = UTIL.isMatch(e.target.value.toLowerCase(), type, students, this.state.name_search, this.state.tag_search);
+      this.setState({ students: search });
+    }
+
   }
 
   render() {
     return(
       <>
         <div id="header">
-        <SearchBar id="search_by_name" placeholder="Search by name" onKeyUp={this.search} pattern="[a-zA-Z0-9]+"/>
-        <SearchBar id="search_by_tag" placeholder="Search by tag" onKeyUp={this.search} pattern="[a-zA-Z0-9]+"/>
+        <SearchBar id="search_by_name" search="name_search" placeholder="Search by name" onKeyUp={this.search} pattern="[a-zA-Z0-9]+"/>
+        <SearchBar id="search_by_tag" search="tag_search" placeholder="Search by tag" onKeyUp={this.search} pattern="[a-zA-Z0-9]+"/>
         </div>
         <Student students={this.state.students} onClick={this.toggleGrades} onSubmit={this.addTag}/>
       </>

@@ -10,7 +10,6 @@ export const API = function(){
 
     for(var student in population){
       if(population[student]) {
-        population[student].newTag = [];
         population[student].tags = [];
         population[student].average = UTIL.getAverage(population[student].grades);
       }
