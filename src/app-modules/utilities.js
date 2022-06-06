@@ -20,16 +20,13 @@ export const UTIL = function(){
 
     if(isNameSearch && previousTagSearch) {
       section = filter(students, previousTagSearch, 'tag_search');
-      // result = filter(section, key, type);
     }
     else if(isTagSearch && previousNameSearch) {
       section = filter(students, previousNameSearch, 'name_search');
-      // result = filter(section, key, type);
-    }
+  }
 
     if((isNameSearch && !previousTagSearch) || (isTagSearch && !previousNameSearch)) {
       section = students;
-      // result = filter(section, key, type);
     }
 
     result = filter(section, key, type)
@@ -44,6 +41,7 @@ export const UTIL = function(){
 
 
     if(type === "tag_search") {
+      // eslint-disable-next-line
       result = students.filter((student) => {
         const tags = student.tags;
 
@@ -59,6 +57,7 @@ export const UTIL = function(){
     }
 
     if(type === "name_search") {
+      // eslint-disable-next-line
       result = students.filter((student) => {
         const first = student.firstName.toLowerCase();
         const last = student.lastName.toLowerCase();

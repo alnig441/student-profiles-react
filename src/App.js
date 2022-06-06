@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import { API } from './app-modules/api';
 import { UTIL } from './app-modules/utilities';
+// import { INIT } from './app-modules/initialize';
+import { localStore } from './app-modules/localStore';
 import { Student } from './components/Student.js';
 import { SearchBar } from './components/SearchBar.js';
 
@@ -13,7 +15,7 @@ class App extends React.Component {
     this.state  = {
       students : [],
       name_search: '',
-      name_search: ''
+      tag_search: ''
     };
     this.toggleGrades = this.toggleGrades.bind(this);
     this.addTag = this.addTag.bind(this);
@@ -45,7 +47,8 @@ class App extends React.Component {
     let id = parseInt(e.target.attributes["data-id"].value);
     let tag = e.target.lastChild.value;
     students[id].tags.push(tag);
-    this.setState({ students: students })
+    this.setState({ students: students });
+    localStore.setStudents(students);
     e.target.lastChild.value = "";
   }
 
