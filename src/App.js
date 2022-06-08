@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { API } from './app-modules/api';
 import { UTIL } from './app-modules/utilities';
-// import { INIT } from './app-modules/initialize';
 import { localStore } from './app-modules/localStore';
 import { Student } from './components/Student.js';
 import { SearchBar } from './components/SearchBar.js';
@@ -44,10 +43,11 @@ class App extends React.Component {
 
   addTag(e) {
     e.preventDefault();
-    let id = parseInt(e.target.attributes["data-id"].value);
+    let id = e.target.attributes["data-id"].value;
     let tag = e.target.lastChild.value;
-    students[id].tags.push(tag);
-    this.setState({ students: students });
+    let {student, stateId} = UTIL.setTags(this.state["students"], students, id, tag);
+    this.state.students[stateId] = student[0];
+    this.setState({ students: this.state.students })
     localStore.setStudents(students);
     e.target.lastChild.value = "";
   }

@@ -4,21 +4,21 @@ import Tags from './Tags.js';
 import AddTag from './AddTag.js';
 
 export function Student(props) {
-  const students = props.students;
+  const {students, onClick, onSubmit} = props;
     return (
       <>
         {students && students.map((student, index) => {
-          let {grades, tags} = student
+          let {grades, tags, id, pic, email} = student
             return (
               <>
-                <div id={student.id} className="grid-container">
+                <div id={id} className="grid-container" >
                   <div className="grid-item picture">
-                    <img src={student.pic} alt="student profile" />
+                    <img src={pic} alt="student profile" />
                   </div>
                   <div className="grid-item details" key={"grades" + index}>
                     <Details student={student} />
                   </div>
-                  <div className="grid-item collapsible" onClick={props.onClick}>
+                  <div className="grid-item collapsible" onClick={onClick}>
                     <span id="expand" hidden >-</span>
                     <span id="collapse" >+</span>
                   </div>
@@ -28,11 +28,11 @@ export function Student(props) {
                   </div>
                   <div className="grid-item empty grades" ></div>
                   <div className="grid-item empty"></div>
-                  <div id={"tags" + student.id} className="grid-item tags">
-                    <div>
+                  <div className="grid-item tags">
+                    <div >
                       <Tags tags={tags} />
                     </div>
-                    <AddTag onSubmit={props.onSubmit} id={index} />
+                    <AddTag onSubmit={onSubmit} id={email} />
                   </div>
                   <div className="grid-item empty"></div>
                 </div>

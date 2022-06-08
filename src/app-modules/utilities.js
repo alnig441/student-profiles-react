@@ -9,6 +9,23 @@ export const UTIL = function(){
     return sumTotal/grades.length;
   }
 
+  function setStudentTags(state, students, id, tag) {
+
+    let stateId, populationId, match;
+
+    if(state){
+      match = state.filter((student, index) => {
+        if(student.email === id) {
+          stateId = index;
+          student.tags.push(tag);
+          return student;
+        }
+      })
+    }
+
+    return {student: match, stateId: stateId}
+  }
+
   function isMatch(key, type, students, ...previousSearch) {
     const previousNameSearch = previousSearch[0];
     const previousTagSearch = previousSearch[1];
@@ -23,7 +40,7 @@ export const UTIL = function(){
     }
     else if(isTagSearch && previousNameSearch) {
       section = filter(students, previousNameSearch, 'name_search');
-  }
+    }
 
     if((isNameSearch && !previousTagSearch) || (isTagSearch && !previousNameSearch)) {
       section = students;
@@ -77,5 +94,5 @@ export const UTIL = function(){
 
   }
 
-  return { getAverage: getAverage, isMatch: isMatch }
+  return { getAverage: getAverage, isMatch: isMatch , setTags: setStudentTags}
 }()
