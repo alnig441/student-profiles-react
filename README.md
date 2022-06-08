@@ -1,12 +1,10 @@
-<<<<<<< HEAD
-# "Student Profiles"
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
 =======
 # Getting Started "Student Profiles" 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
->>>>>>> c020eb1d46af2d28e23b70310e1dcc3ea5f13758
+
 App has been deployed @ [herokuapps](https://allan-nielsen-student-profiles.herokuapp.com/)
 
 ## Available Scripts
