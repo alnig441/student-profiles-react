@@ -1,9 +1,6 @@
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
-=======
 # Getting Started "Student Profiles" 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
 
 App has been deployed @ [herokuapps](https://allan-nielsen-student-profiles.herokuapp.com/)
 
