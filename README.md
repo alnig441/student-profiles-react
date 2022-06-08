@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Getting Started "Student Profiles" 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+App has been deployed @ [herokuapps](https://allan-nielsen-student-profiles.herokuapp.com/)
 
 ## Available Scripts
 
