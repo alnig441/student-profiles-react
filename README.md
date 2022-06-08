@@ -1,7 +1,7 @@
 # "Student Profiles App"
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
-The app is available at [herokuapp](https://allan-nielsen-student-profiles.herokuapp.com/)
+The app is available at [herokuapps](https://allan-nielsen-student-profiles.herokuapp.com/)
 
 ## Available Scripts
 
